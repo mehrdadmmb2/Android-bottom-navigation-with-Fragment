@@ -14,6 +14,16 @@ import android.view.ViewGroup;
 
 public class Fragment1 extends Fragment {
 
+    private static Fragment1 fragment;
+
+
+    public static Fragment1 newInstance() {
+        if (fragment == null)
+            fragment = new Fragment1();
+        return fragment;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -25,6 +35,7 @@ public class Fragment1 extends Fragment {
 
 
     }
+
 
 
 

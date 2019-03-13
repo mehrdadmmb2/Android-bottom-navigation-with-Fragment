@@ -1,18 +1,16 @@
 package mmb.com.test.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class MainActivity extends FragmentActivity {
 
@@ -24,12 +22,26 @@ public class MainActivity extends FragmentActivity {
 
         loadFragment(new Fragment1());
 
+        Button btn = findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+
+                MyMessage event = new MyMessage();
+                event.setMessage("Salam");
+                EventBus.getDefault().post(event);
+                startActivity(intent);
+            }
+        });
+
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
     }
+
 
     private boolean loadFragment(Fragment fragment) {
         //switching fragment

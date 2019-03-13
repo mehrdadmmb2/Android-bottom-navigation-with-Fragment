@@ -14,6 +14,14 @@ import android.view.ViewGroup;
 
 public class Fragment3 extends Fragment {
 
+    private static Fragment3 fragment;
+
+
+    public static Fragment3 newInstance() {
+        if (fragment == null)
+            fragment = new Fragment3();
+        return fragment;
+    }
 
     @Nullable
     @Override
