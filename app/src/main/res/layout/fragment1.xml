@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#ffffff"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
-
+    <ProgressBar
+        android:id="@+id/pr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
     <TextView
+        android:id="@+id/txtTry"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:background="#7CB342"
+        android:gravity="center"
+        android:text="Try again"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/txtText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/txtTry"
         android:text="F1"
         android:textSize="70dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
